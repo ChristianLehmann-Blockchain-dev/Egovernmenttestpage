@@ -101,7 +101,7 @@ export function StrategyPage() {
             Einführungsstrategie: Das Gletschermodell
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-            Eine systematische, schichtenweise Einführung der e-Gov Plattform –
+            Eine systematische, schichtenweise Einführung des Digitalen Wandels –
             stabil, nachhaltig und skalierbar wie ein Gletscher.
           </p>
           
