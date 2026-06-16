@@ -1,55 +1,61 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app/components/ui/card";
-import { Mail, Code, Users, Database, ClipboardCheck } from "lucide-react";
+import { Mail, Code, Users, Database, ClipboardCheck, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 const teamMembers = [
   {
-    name: "Max Mustermann",
+    name: "Christoph Müller",
     role: "Abteilungsleiter",
     category: "Leitung",
     description: "Verantwortlich für die strategische Ausrichtung und Koordination der Abteilung E-Government und digitaler Wandel.",
     icon: Users,
-    email: "max.mustermann@egov-verwaltung.de",
+    email: "christoph.mueller@egov-verwaltung.de",
+    vacant: false,
   },
   {
-    name: "Anna Schmidt",
-    role: "E-Gov Sachbearbeiterin",
+    name: "Kai Liebe",
+    role: "E-Gov Sachbearbeiter",
     category: "E-Government",
     description: "Bearbeitung und Koordination von E-Government-Projekten und digitalen Verwaltungsleistungen.",
     icon: ClipboardCheck,
-    email: "anna.schmidt@egov-verwaltung.de",
+    email: "kai.liebe@egov-verwaltung.de",
+    vacant: false,
   },
   {
-    name: "Thomas Weber",
+    name: "Christian Lehmann",
     role: "E-Gov Sachbearbeiter",
     category: "E-Government",
     description: "Umsetzung von E-Government-Services und Unterstützung bei der digitalen Transformation.",
     icon: ClipboardCheck,
-    email: "thomas.weber@egov-verwaltung.de",
+    email: "christian.lehmann@egov-verwaltung.de",
+    vacant: false,
   },
   {
-    name: "Lisa Müller",
+    name: "Carolin Stübe",
     role: "DMS Fachadministratorin",
     category: "DMS",
     description: "Administration und Weiterentwicklung des Dokumentenmanagementsystems sowie Anwendersupport.",
     icon: Database,
-    email: "lisa.mueller@egov-verwaltung.de",
+    email: "carolin.stuebe@egov-verwaltung.de",
+    vacant: false,
   },
   {
-    name: "Michael Fischer",
-    role: "Sachbearbeiter digitaler Wandel",
+    name: "Stelle nicht besetzt",
+    role: "Sachbearbeiter/in digitaler Wandel",
     category: "Digitaler Wandel",
-    description: "Analyse und Optimierung von Verwaltungsprozessen im Rahmen der digitalen Transformation.",
-    icon: Code,
-    email: "michael.fischer@egov-verwaltung.de",
+    description: "🚨 Hier könnte Ihre Karriere stehen! Wir suchen jemanden, der den digitalen Wandel nicht nur erlebt, sondern aktiv mitgestaltet – und dabei auch noch Spaß hat. Analoge Aktenordner schaffen wir ab, Ihre Chance wartet. Bewerbungen bitte digital (natürlich!).",
+    icon: Sparkles,
+    email: "bewerbung@egov-verwaltung.de",
+    vacant: true,
   },
   {
-    name: "Sarah Becker",
-    role: "Sachbearbeiterin digitaler Wandel",
+    name: "Stelle nicht besetzt",
+    role: "Sachbearbeiter/in digitaler Wandel",
     category: "Digitaler Wandel",
-    description: "Begleitung und Unterstützung von Digitalisierungsprojekten in der Verwaltung.",
-    icon: Code,
-    email: "sarah.becker@egov-verwaltung.de",
+    description: "🚨 Hier könnte Ihre Karriere stehen! Wir suchen jemanden, der den digitalen Wandel nicht nur erlebt, sondern aktiv mitgestaltet – und dabei auch noch Spaß hat. Analoge Aktenordner schaffen wir ab, Ihre Chance wartet. Bewerbungen bitte digital (natürlich!).",
+    icon: Sparkles,
+    email: "bewerbung@egov-verwaltung.de",
+    vacant: true,
   },
 ];
 
@@ -136,19 +142,37 @@ export function TeamPage() {
             return (
               <Card
                 key={index}
-                className="hover:shadow-lg transition-all duration-200 group"
+                className={`hover:shadow-lg transition-all duration-200 group ${
+                  member.vacant
+                    ? "border-2 border-dashed border-orange-400 bg-orange-50"
+                    : ""
+                }`}
               >
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center">
+                    <div
+                      className={`w-16 h-16 rounded-full flex items-center justify-center ${
+                        member.vacant
+                          ? "bg-gradient-to-br from-orange-400 to-orange-600"
+                          : "bg-gradient-to-br from-blue-500 to-blue-700"
+                      }`}
+                    >
                       <Icon className="h-8 w-8 text-white" />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-lg">{member.name}</CardTitle>
+                      <CardTitle
+                        className={`text-lg ${member.vacant ? "text-orange-700 italic" : ""}`}
+                      >
+                        {member.name}
+                      </CardTitle>
                       <p className="text-xs text-gray-500">{member.category}</p>
                     </div>
                   </div>
-                  <CardDescription className="text-sm font-medium text-blue-600">
+                  <CardDescription
+                    className={`text-sm font-medium ${
+                      member.vacant ? "text-orange-600" : "text-blue-600"
+                    }`}
+                  >
                     {member.role}
                   </CardDescription>
                 </CardHeader>
@@ -157,10 +181,20 @@ export function TeamPage() {
                     {member.description}
                   </p>
                   <div className="flex gap-2">
-                    <button className="flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors">
-                      <Mail className="h-4 w-4" />
-                      <span className="hidden xl:inline">Kontakt</span>
-                    </button>
+                    {member.vacant ? (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="flex items-center gap-1 text-xs font-semibold text-orange-600 hover:text-orange-800 transition-colors"
+                      >
+                        <Mail className="h-4 w-4" />
+                        Jetzt bewerben!
+                      </a>
+                    ) : (
+                      <button className="flex items-center gap-1 text-xs text-gray-500 hover:text-blue-600 transition-colors">
+                        <Mail className="h-4 w-4" />
+                        <span className="hidden xl:inline">Kontakt</span>
+                      </button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -172,7 +206,7 @@ export function TeamPage() {
         <div className="mt-16 bg-white rounded-lg shadow-sm p-8">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">6</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">4</div>
               <p className="text-gray-600">Teammitglieder</p>
             </div>
             <div>

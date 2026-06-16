@@ -6,47 +6,115 @@ import { FileSignature, Database, Mail, Shield, Building2, Users, Calendar, Tren
 const references = [
   {
     id: 1,
-    name: "Landkreis Musterland",
-    category: "Landkreis",
-    services: ["DMS", "Digitale Signatur", "E-Siegel", "Postausgang"],
-    description: "Umfassende Digitalisierung der Kreisverwaltung",
+    name: "Amt 12.5 – Personalrat",
+    category: "Sachgebiet",
+    services: ["DMS", "Digitale Signatur", "Postausgang"],
+    description: "Digitale Unterstützung der Personalratsarbeit und Dokumentenverwaltung",
     details: {
-      timeframe: "2022 - 2025",
-      users: "1.300+ Mitarbeiter",
-      achievements: [
-        "Vollständig papierlose Aktenführung in allen Ämtern",
-        "1,9 Millionen digitale Dokumente verwaltet",
-        "Bearbeitungszeit um 65% verkürzt",
-        "Einsparung von 450.000€ jährlich",
-      ],
-      challenges: "Integration verschiedener Fachverfahren, Migration historischer Akten, Schulung vieler Mitarbeiter",
-      solution: "Schrittweise Einführung nach Gletschermodell, umfassendes Schulungsprogramm, automatisierte Digitalisierung mit OCR",
-      departments: [
-        {
-          name: "Bauamt",
-          description: "Digitales Baugenehmigungsverfahren mit Planverwaltung",
-          documents: "650.000",
-          processes: "42",
-        },
-        {
-          name: "Straßenverkehrsamt",
-          description: "Digitale Zulassungsvorgänge und Führerscheinwesen",
-          documents: "850.000",
-          processes: "38",
-        },
-        {
-          name: "Sozialamt",
-          description: "Digitale Antragsbearbeitung und Leistungsgewährung",
-          documents: "400.000",
-          processes: "35",
-        },
-      ],
+      timeframe: "2024 - laufend",
+      users: "12 Mitarbeiter",
+      achievements: ["Papierlose Sitzungsvorbereitung", "Digitale Beschlusserfassung", "Sichere Dokumentenablage im DMS"],
+      challenges: "Vertraulichkeit der Personalratsdokumente, rechtssichere Aufbewahrung",
+      solution: "Rollenbasierte Zugriffskontrolle, verschlüsselte Ablage, revisionssichere Archivierung",
+      departments: [],
     },
-    stats: {
-      documents: "1,9 Mio",
-      processes: "115",
-      satisfaction: "94%",
+    stats: { documents: "2.800", processes: "8" },
+  },
+  {
+    id: 2,
+    name: "Amt 14 – Rechnungs- und Gemeindeprüfungsamt",
+    category: "Fachamt",
+    services: ["DMS", "Digitale Signatur", "E-Siegel"],
+    description: "Digitalisierung der Prüf- und Berichtsprozesse",
+    details: {
+      timeframe: "2024 - laufend",
+      users: "18 Mitarbeiter",
+      achievements: ["Digitale Prüfberichte mit E-Siegel", "Elektronischer Versand an Gemeinden", "Zentrale Ablage aller Prüfakten"],
+      challenges: "Rechtssicherheit der digitalen Prüfberichte, Anbindung an Gemeinden",
+      solution: "Qualifiziertes E-Siegel für Prüfberichte, digitaler Postausgang mit Zustellnachweis",
+      departments: [],
     },
+    stats: { documents: "5.400", processes: "14" },
+  },
+  {
+    id: 3,
+    name: "Amt 20 – Finanzen und Controlling",
+    category: "Fachamt",
+    services: ["DMS", "Digitale Signatur", "Postausgang"],
+    description: "Digitale Rechnungsverarbeitung und Finanzberichterstattung",
+    details: {
+      timeframe: "2023 - laufend",
+      users: "35 Mitarbeiter",
+      achievements: ["Vollständig digitale Eingangsrechnungsverarbeitung", "Automatisierte Zahlungsfreigabe", "Digitale Haushaltsberichte"],
+      challenges: "Integration in bestehendes Finanzsystem, mehrstufige Freigabeprozesse",
+      solution: "Workflow-gestützte Rechnungsverarbeitung, digitale Signatur für Freigaben",
+      departments: [],
+    },
+    stats: { documents: "28.000", processes: "22" },
+  },
+  {
+    id: 4,
+    name: "Amt 30 – Kommunalaufsichts- und Rechnungsamt",
+    category: "Fachamt",
+    services: ["DMS", "E-Siegel", "Postausgang"],
+    description: "Digitale Aufsichtsprozesse und Korrespondenz mit Kommunen",
+    details: {
+      timeframe: "2024 - laufend",
+      users: "22 Mitarbeiter",
+      achievements: ["Digitale Bescheide mit E-Siegel", "Elektronische Kommunikation mit Gemeinden", "Zentrale Aktenführung im DMS"],
+      challenges: "Vielzahl kommunaler Ansprechpartner, unterschiedliche Dokumententypen",
+      solution: "Digitaler Postausgang mit Empfangsbestätigung, strukturierte DMS-Ablage nach Gemeinden",
+      departments: [],
+    },
+    stats: { documents: "12.500", processes: "18" },
+  },
+  {
+    id: 5,
+    name: "Amt 10 – Service und Gebäudemanagement",
+    category: "Fachamt",
+    services: ["DMS", "Postausgang"],
+    description: "Digitale Verwaltung von Verträgen, Wartungen und Gebäudeunterlagen",
+    details: {
+      timeframe: "2024 - laufend",
+      users: "28 Mitarbeiter",
+      achievements: ["Digitale Vertragsverwaltung", "Elektronische Wartungsprotokolle", "Zentrale Plandokumentation"],
+      challenges: "Große Menge heterogener Gebäudeunterlagen, unterschiedliche Dateiformate",
+      solution: "Einheitliche DMS-Struktur, automatische Metadatenerfassung, digitaler Postausgang",
+      departments: [],
+    },
+    stats: { documents: "18.200", processes: "16" },
+  },
+  {
+    id: 6,
+    name: "Amt 11 – Personal und Organisation",
+    category: "Fachamt",
+    services: ["DMS", "Digitale Signatur", "E-Siegel", "Postausgang"],
+    description: "Digitale Personalaktenführung und Organisationsverwaltung",
+    details: {
+      timeframe: "2023 - laufend",
+      users: "42 Mitarbeiter",
+      achievements: ["Vollständig digitale Personalakte", "Elektronische Arbeitsverträge mit Signatur", "Digitale Stellenausschreibungen und Bewerbungsverfahren"],
+      challenges: "Datenschutz bei Personalunterlagen, rechtskonforme digitale Personalakte",
+      solution: "Verschlüsselte Ablage, rollenbasierte Zugriffsrechte, qualifizierte elektronische Signatur",
+      departments: [],
+    },
+    stats: { documents: "45.000", processes: "31" },
+  },
+  {
+    id: 7,
+    name: "Amt 66 – Umweltamt",
+    category: "Fachamt",
+    services: ["DMS", "Digitale Signatur", "E-Siegel", "Postausgang"],
+    description: "Digitale Genehmigungsverfahren und Umweltschutzprozesse",
+    details: {
+      timeframe: "2024 - laufend",
+      users: "48 Mitarbeiter",
+      achievements: ["Digitale Umweltgenehmigungen mit E-Siegel", "Elektronische Bescheiderteilung", "Zentrale Verwaltung von Umweltgutachten"],
+      challenges: "Komplexe mehrstufige Genehmigungsverfahren, Einbindung externer Gutachter",
+      solution: "Workflow-Engine für Genehmigungsprozesse, digitaler Postausgang, DMS-Integration",
+      departments: [],
+    },
+    stats: { documents: "22.100", processes: "27" },
   },
 ];
 
@@ -71,33 +139,26 @@ export function ReferencesPage() {
         </div>
 
         {/* Statistics Overview */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-3 gap-4 mb-12">
           <Card>
             <CardContent className="pt-6 text-center">
               <Building2 className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-blue-600 mb-1">3</div>
+              <div className="text-3xl font-bold text-blue-600 mb-1">7</div>
               <p className="text-sm text-gray-600">Fachämter</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6 text-center">
               <Users className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-blue-600 mb-1">1.300+</div>
+              <div className="text-3xl font-bold text-blue-600 mb-1">300+</div>
               <p className="text-sm text-gray-600">Aktive Nutzer</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6 text-center">
               <Database className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-blue-600 mb-1">1,9 Mio</div>
+              <div className="text-3xl font-bold text-blue-600 mb-1">0,2 Mio</div>
               <p className="text-sm text-gray-600">Dokumente</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="pt-6 text-center">
-              <TrendingUp className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-blue-600 mb-1">94%</div>
-              <p className="text-sm text-gray-600">Zufriedenheit</p>
             </CardContent>
           </Card>
         </div>
@@ -107,7 +168,8 @@ export function ReferencesPage() {
           {references.map((reference) => (
             <Dialog key={reference.id}>
               <DialogTrigger asChild>
-                <Card className="cursor-pointer hover:shadow-lg transition-all duration-200 group">
+                <div className="cursor-pointer">
+                <Card className="hover:shadow-lg transition-all duration-200 group h-full">
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
                       <Building2 className="h-8 w-8 text-blue-600 group-hover:scale-110 transition-transform" />
@@ -140,7 +202,7 @@ export function ReferencesPage() {
                         })}
                       </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-2 pt-3 border-t">
+                    <div className="grid grid-cols-2 gap-2 pt-3 border-t">
                       <div className="text-center">
                         <p className="text-lg font-bold text-blue-600">
                           {reference.stats.documents}
@@ -153,15 +215,10 @@ export function ReferencesPage() {
                         </p>
                         <p className="text-xs text-gray-600">Prozesse</p>
                       </div>
-                      <div className="text-center">
-                        <p className="text-lg font-bold text-blue-600">
-                          {reference.stats.satisfaction}
-                        </p>
-                        <p className="text-xs text-gray-600">Zufrieden</p>
-                      </div>
                     </div>
                   </CardContent>
                 </Card>
+                </div>
               </DialogTrigger>
               <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
                 <DialogHeader>

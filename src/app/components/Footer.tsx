@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { logoLro } from "@/assets/logo-lro";
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -14,9 +15,6 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* About */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-blue-800 font-bold text-xl">eG</span>
-              </div>
               <div>
                 <h3 className="font-bold text-lg leading-tight">E-Government</h3>
                 <p className="text-xs text-blue-200">Digitaler Wandel</p>
@@ -73,22 +71,6 @@ export function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => onNavigate("dashboard1")}
-                  className="text-sm text-blue-100 hover:text-white transition-colors"
-                >
-                  Organisationseinheiten
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate("dashboard2")}
-                  className="text-sm text-blue-100 hover:text-white transition-colors"
-                >
-                  E-Gov Dienste
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => onNavigate("process")}
                   className="text-sm text-blue-100 hover:text-white transition-colors"
                 >
@@ -113,18 +95,17 @@ export function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start gap-2 text-sm text-blue-100">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <span>
-                  Musterstraße 123
-                  <br />
-                  12345 Musterstadt
+                  Am Wall 3–5<br />
+                  18273 Güstrow
                 </span>
               </li>
               <li className="flex items-center gap-2 text-sm text-blue-100">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>+49 123 456789</span>
+                <span>+49 3843 755-0</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-blue-100">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>info@egov-verwaltung.de</span>
+                <span>info@lkros.de</span>
               </li>
             </ul>
           </div>

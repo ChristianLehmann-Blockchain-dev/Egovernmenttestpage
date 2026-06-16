@@ -1,17 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Progress } from "@/app/components/ui/progress";
 import { Badge } from "@/app/components/ui/badge";
-import { CheckCircle2, Circle, Mountain, Layers, Target, Zap } from "lucide-react";
+import { CheckCircle2, Circle, Mountain, Layers, Target, Zap, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 const glacierLayers = [
   {
-    id: 1,
-    name: "Layer 1: Fundament",
+    id: 0,
+    name: "Layer 0: Fundament",
     title: "Fundament & Basis-Infrastruktur",
     status: "completed",
     progress: 100,
-    color: "from-blue-900 to-blue-800",
+    color: "from-blue-950 to-blue-900",
     description: "Aufbau der technischen Grundlagen und Infrastruktur",
     details: [
       "Server-Infrastruktur aufgesetzt",
@@ -23,12 +23,12 @@ const glacierLayers = [
     timeframe: "Q1-Q2 2024",
   },
   {
-    id: 2,
-    name: "Layer 2: Kernservices",
+    id: 1,
+    name: "Layer 1: Kernservices",
     title: "Digitale Kernservices",
     status: "in-progress",
     progress: 30,
-    color: "from-blue-800 to-blue-700",
+    color: "from-blue-900 to-blue-800",
     description: "Schrittweise Implementierung von DMS und E-Gov Services",
     details: [
       "DMS (Dokumentenmanagement) in Pilotphase - 30% eingeführt",
@@ -40,12 +40,12 @@ const glacierLayers = [
     timeframe: "Q3 2024 - Q4 2026",
   },
   {
-    id: 3,
-    name: "Layer 3: Integration",
+    id: 2,
+    name: "Layer 2: Integration",
     title: "Prozessintegration & Workflows",
     status: "planned",
     progress: 10,
-    color: "from-blue-700 to-blue-600",
+    color: "from-blue-800 to-blue-700",
     description: "Integration in bestehende Prozesse und Fachverfahren",
     details: [
       "Workflow-Engine wird konfiguriert",
@@ -57,12 +57,12 @@ const glacierLayers = [
     timeframe: "2027 - 2028",
   },
   {
-    id: 4,
-    name: "Layer 4: Innovation",
+    id: 3,
+    name: "Layer 3: Innovation",
     title: "Innovation & Optimierung",
     status: "planned",
     progress: 5,
-    color: "from-blue-600 to-blue-500",
+    color: "from-blue-700 to-blue-600",
     description: "Kontinuierliche Verbesserung und neue Features",
     details: [
       "KI-gestützte Formularerkennung wird konzipiert",
@@ -72,6 +72,23 @@ const glacierLayers = [
     ],
     icon: Zap,
     timeframe: "Ab 2029",
+  },
+  {
+    id: 4,
+    name: "Layer 4: Intelligente Verwaltung",
+    title: "KI & Vollautomatisierung",
+    status: "planned",
+    progress: 0,
+    color: "from-blue-600 to-blue-500",
+    description: "Vollständig KI-gestützte, autonome Verwaltungsprozesse",
+    details: [
+      "Autonome Entscheidungsunterstützung durch KI",
+      "Proaktive Bürgerservices auf Basis von Datenmuster",
+      "Selbstoptimierende Workflows ohne manuellen Eingriff",
+      "Vollständige Interoperabilität mit Bundes- und Ländersystemen",
+    ],
+    icon: Sparkles,
+    timeframe: "Ab 2032",
   },
 ];
 
@@ -83,14 +100,14 @@ const statusLabels = {
 
 export function StrategyPage() {
   const [hoveredLayer, setHoveredLayer] = useState<number | null>(null);
-  const [selectedLayer, setSelectedLayer] = useState<number | null>(1);
+  const [selectedLayer, setSelectedLayer] = useState<number | null>(0);
 
   const overallProgress = Math.round(
     glacierLayers.reduce((sum, layer) => sum + layer.progress, 0) /
       glacierLayers.length
   );
 
-  const currentLayer = glacierLayers.find((l) => l.status === "in-progress") || glacierLayers[glacierLayers.length - 1];
+  const currentLayer = glacierLayers.find((l) => l.status === "in-progress") || glacierLayers[0];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-12">
@@ -139,13 +156,14 @@ export function StrategyPage() {
                 {/* Visual Glacier */}
                 <div className="p-8 bg-gradient-to-b from-sky-100 to-white">
                   <div className="relative max-w-md mx-auto">
-                    {/* Glacier layers from top to bottom */}
+                    {/* Glacier layers: Layer 4 on top (small), Layer 0 at bottom (large) */}
                     <div className="space-y-2">
-                      {glacierLayers.map((layer, index) => {
+                      {[...glacierLayers].reverse().map((layer, index) => {
                         const Icon = layer.icon;
                         const isHovered = hoveredLayer === layer.id;
                         const isSelected = selectedLayer === layer.id;
-                        const heightClass = index === 0 ? "h-20" : index === 1 ? "h-24" : index === 2 ? "h-28" : "h-32";
+                        // index 0 = Layer 4 (top, smallest), index 4 = Layer 0 (bottom, largest)
+                        const heightClass = index === 0 ? "h-16" : index === 1 ? "h-20" : index === 2 ? "h-24" : index === 3 ? "h-28" : "h-32";
                         
                         return (
                           <div
@@ -210,7 +228,7 @@ export function StrategyPage() {
 
                 {/* Layer Details */}
                 <div className="p-8 bg-gray-50">
-                  {selectedLayer && (
+                  {selectedLayer !== null && (
                     <>
                       {(() => {
                         const layer = glacierLayers.find((l) => l.id === selectedLayer)!;

@@ -309,34 +309,10 @@ export function Dashboard2() {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Area
-                    type="monotone"
-                    dataKey="DMS"
-                    stackId="1"
-                    stroke="#2563eb"
-                    fill="#2563eb"
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="Postausgang"
-                    stackId="1"
-                    stroke="#3b82f6"
-                    fill="#3b82f6"
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="Signatur"
-                    stackId="1"
-                    stroke="#60a5fa"
-                    fill="#60a5fa"
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="Siegel"
-                    stackId="1"
-                    stroke="#93c5fd"
-                    fill="#93c5fd"
-                  />
+                  <Area id="area-dms" type="monotone" dataKey="DMS" stackId="1" stroke="#2563eb" fill="#2563eb" />
+                  <Area id="area-postausgang" type="monotone" dataKey="Postausgang" stackId="1" stroke="#3b82f6" fill="#3b82f6" />
+                  <Area id="area-signatur" type="monotone" dataKey="Signatur" stackId="1" stroke="#60a5fa" fill="#60a5fa" />
+                  <Area id="area-siegel" type="monotone" dataKey="Siegel" stackId="1" stroke="#93c5fd" fill="#93c5fd" />
                 </AreaChart>
               </ResponsiveContainer>
             </CardContent>
@@ -355,27 +331,9 @@ export function Dashboard2() {
                   <PolarGrid />
                   <PolarAngleAxis dataKey="service" />
                   <PolarRadiusAxis angle={90} domain={[0, 100]} />
-                  <Radar
-                    name="Uptime"
-                    dataKey="Uptime"
-                    stroke="#2563eb"
-                    fill="#2563eb"
-                    fillOpacity={0.3}
-                  />
-                  <Radar
-                    name="Nutzung"
-                    dataKey="Nutzung"
-                    stroke="#10b981"
-                    fill="#10b981"
-                    fillOpacity={0.3}
-                  />
-                  <Radar
-                    name="Wachstum"
-                    dataKey="Wachstum"
-                    stroke="#f59e0b"
-                    fill="#f59e0b"
-                    fillOpacity={0.3}
-                  />
+                  <Radar id="radar-uptime" name="Uptime" dataKey="Uptime" stroke="#2563eb" fill="#2563eb" fillOpacity={0.3} />
+                  <Radar id="radar-nutzung" name="Nutzung" dataKey="Nutzung" stroke="#10b981" fill="#10b981" fillOpacity={0.3} />
+                  <Radar id="radar-wachstum" name="Wachstum" dataKey="Wachstum" stroke="#f59e0b" fill="#f59e0b" fillOpacity={0.3} />
                   <Legend />
                   <Tooltip />
                 </RadarChart>

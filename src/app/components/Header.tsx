@@ -1,6 +1,6 @@
-import { Button } from "@/app/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { logoLro } from "@/assets/logo-lro";
 
 interface HeaderProps {
   currentPage: string;
@@ -22,23 +22,25 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-40 items-center justify-between">
           {/* Logo */}
           <div
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => onNavigate("home")}
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-xl">eG</span>
-            </div>
+            <img
+              src={logoLro}
+              alt="Landkreis Rostock"
+              className="h-36 w-auto object-contain"
+            />
             <div>
               <h1 className="font-bold text-lg leading-tight">E-Government</h1>
               <p className="text-xs text-gray-600">Digitaler Wandel</p>
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          {/* Desktop Navigation – zentriert */}
+          <nav className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -51,24 +53,6 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
               </button>
             ))}
           </nav>
-
-          {/* Dashboard Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant={currentPage === "dashboard1" ? "default" : "outline"}
-              onClick={() => onNavigate("dashboard1")}
-              className="text-sm"
-            >
-              Dashboard 1
-            </Button>
-            <Button
-              variant={currentPage === "dashboard2" ? "default" : "outline"}
-              onClick={() => onNavigate("dashboard2")}
-              className="text-sm"
-            >
-              Dashboard 2
-            </Button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -103,28 +87,6 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                   {item.label}
                 </button>
               ))}
-              <div className="flex flex-col gap-2 pt-2 border-t">
-                <Button
-                  variant={currentPage === "dashboard1" ? "default" : "outline"}
-                  onClick={() => {
-                    onNavigate("dashboard1");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full"
-                >
-                  Dashboard 1
-                </Button>
-                <Button
-                  variant={currentPage === "dashboard2" ? "default" : "outline"}
-                  onClick={() => {
-                    onNavigate("dashboard2");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full"
-                >
-                  Dashboard 2
-                </Button>
-              </div>
             </nav>
           </div>
         )}

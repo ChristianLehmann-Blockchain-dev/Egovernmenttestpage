@@ -220,7 +220,7 @@ export function Dashboard1() {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="Prozesse" fill="#2563eb" />
+                  <Bar id="bar-prozesse" dataKey="Prozesse" fill="#2563eb" />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -247,6 +247,7 @@ export function Dashboard1() {
                     outerRadius={80}
                     fill="#8884d8"
                     dataKey="value"
+                    id="pie-prozesse"
                   >
                     {pieData.map((entry, index) => (
                       <Cell

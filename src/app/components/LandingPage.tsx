@@ -34,14 +34,6 @@ export function LandingPage({ onNavigate }: LandingPageProps) {
                 Einführungsstrategie kennenlernen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => onNavigate("dashboard1")}
-                className="text-lg px-8"
-              >
-                Zu den Dashboards
-              </Button>
             </div>
           </div>
         </div>
